@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0e2nox01bd47"]
+
+[ext_resource type="Script" uid="uid://dg0ok6nwetopd" path="res://elements/placement_enemies.gd" id="1_hspld"]
+[ext_resource type="Texture2D" uid="uid://dv1xk1cfr7ury" path="res://elements/enemy_placement.png" id="2_hce7b"]
+[ext_resource type="PackedScene" uid="uid://yui6pxh7ef8g" path="res://elements/character_bits_shower.tscn" id="2_puatp"]
+
+[node name="PlacementEnemies" type="Node2D"]
+script = ExtResource("1_hspld")
+
+[node name="CharacterBitsShower" parent="." instance=ExtResource("2_puatp")]
+character_bits = ["bits_magic"]
+
+[node name="Template" type="Sprite2D" parent="."]
+texture = ExtResource("2_hce7b")

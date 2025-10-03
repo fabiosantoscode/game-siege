@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckehmt1s8ik7"]
+
+[ext_resource type="Script" uid="uid://cbdxg5b038qxv" path="res://elements/game_objective.gd" id="1_fl1my"]
+[ext_resource type="Texture2D" uid="uid://t7fd7wkdrhsd" path="res://elements/game_objective_outer.png" id="2_efukn"]
+[ext_resource type="Texture2D" uid="uid://ecc33d8kfh7x" path="res://elements/game_objective_inner.png" id="3_qeviv"]
+[ext_resource type="Texture2D" uid="uid://dojib7eqnx5xg" path="res://elements/game_objective_night_indicator.png" id="4_6doqo"]
+[ext_resource type="Texture2D" uid="uid://lvi4ugt0pun3" path="res://elements/game_objective_round_indicator.png" id="5_efukn"]
+
+[node name="GameObjective" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 12.0
+script = ExtResource("1_fl1my")
+
+[node name="OuterRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_efukn")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="InnerRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qeviv")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="NightIndicators" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NightIndicatorTemplate" type="NinePatchRect" parent="NightIndicators"]
+layout_mode = 2
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 8.0
+offset_bottom = 13.0
+pivot_offset = Vector2(3, 0)
+size_flags_horizontal = 0
+texture = ExtResource("4_6doqo")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="RoundIndicatorTemplate" type="NinePatchRect" parent="NightIndicators"]
+layout_mode = 2
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 7.0
+offset_bottom = 9.0
+pivot_offset = Vector2(3, 0)
+size_flags_horizontal = 0
+texture = ExtResource("5_efukn")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2

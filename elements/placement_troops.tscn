@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq5j7il20v1qd"]
+
+[ext_resource type="Script" uid="uid://dt64wefuwwanl" path="res://elements/placement_troops.gd" id="1_puewb"]
+[ext_resource type="PackedScene" uid="uid://tqm30t1uev2o" path="res://elements/character_stats_shower.tscn" id="2_7ie2d"]
+[ext_resource type="PackedScene" uid="uid://yui6pxh7ef8g" path="res://elements/character_bits_shower.tscn" id="2_r4vba"]
+[ext_resource type="Texture2D" uid="uid://bwdm13y75o0vl" path="res://elements/character_dragger1.png" id="3_dtn7s"]
+
+[node name="PlacementTroops" type="Node2D"]
+script = ExtResource("1_puewb")
+
+[node name="CharacterStatsShower" parent="." instance=ExtResource("2_7ie2d")]
+
+[node name="CharacterBitsShower" parent="." instance=ExtResource("2_r4vba")]
+character_bits = ["bits_magic"]
+
+[node name="Template" type="Sprite2D" parent="."]
+texture = ExtResource("3_dtn7s")

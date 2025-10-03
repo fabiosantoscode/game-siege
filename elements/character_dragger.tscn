@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqkcwem4vi5xo"]
+
+[ext_resource type="Script" uid="uid://c48edpcskokwe" path="res://elements/character_dragger.gd" id="1_4igea"]
+[ext_resource type="Texture2D" uid="uid://bwdm13y75o0vl" path="res://elements/character_dragger1.png" id="1_jg6bs"]
+[ext_resource type="Texture2D" uid="uid://beom6y4dwdcd0" path="res://elements/character_dragger3.png" id="2_7hts1"]
+[ext_resource type="PackedScene" uid="uid://yui6pxh7ef8g" path="res://elements/character_bits_shower.tscn" id="2_deh8y"]
+[ext_resource type="Texture2D" uid="uid://o23q8s45vhyc" path="res://elements/character_dragger2.png" id="2_rn132"]
+[ext_resource type="PackedScene" uid="uid://tqm30t1uev2o" path="res://elements/character_stats_shower.tscn" id="2_syekf"]
+
+[node name="CharacterDragger" type="Node2D"]
+script = ExtResource("1_4igea")
+
+[node name="CharacterStatsShower" parent="." instance=ExtResource("2_syekf")]
+
+[node name="CharacterBitsShower" parent="." instance=ExtResource("2_deh8y")]
+
+[node name="Button" type="TextureButton" parent="."]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+texture_normal = ExtResource("1_jg6bs")
+texture_pressed = ExtResource("2_7hts1")
+texture_hover = ExtResource("2_rn132")

@@ -1,0 +1,136 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsdfe3bafvdjv"]
+
+[ext_resource type="Script" uid="uid://cfh7vpgnmjlgu" path="res://character_bits/bits_hammer.gd" id="1_5eg28"]
+[ext_resource type="Texture2D" uid="uid://c6v3jme1k2l1c" path="res://character_bits/bits_hammer.png" id="2_u4103"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mfpnw"]
+radius = 30.0167
+
+[sub_resource type="Animation" id="Animation_o2wdi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hammer/HammerHandle/Damage:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hammer:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hammer:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hammer:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_qgcnp"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hammer/HammerHandle/Damage:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.206653, 0.371804, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 0, 4, 4]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hammer:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hammer:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hammer:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(1, 2, 0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0, 0, 0.358136, -0.0412887, 0.111221, 0.167245, -0.450513, -3.84665, 0, 0, 0, 0, -4.71381, 0, 0, 0, 0, -6.28318, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.149036, 0.37157, 0.7, 0.966667)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_14o8r"]
+_data = {
+&"RESET": SubResource("Animation_o2wdi"),
+&"attack": SubResource("Animation_qgcnp")
+}
+
+[node name="BitsHammer" type="Node2D"]
+script = ExtResource("1_5eg28")
+
+[node name="Hammer" type="Node2D" parent="."]
+
+[node name="HammerHandle" type="Node2D" parent="Hammer"]
+
+[node name="Damage" type="Area2D" parent="Hammer/HammerHandle"]
+process_mode = 4
+position = Vector2(26, 0)
+rotation = 1.57079
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hammer/HammerHandle/Damage"]
+position = Vector2(-6.90182e-05, 11)
+shape = SubResource("CircleShape2D_mfpnw")
+
+[node name="BitsHammer" type="Sprite2D" parent="Hammer/HammerHandle"]
+position = Vector2(26, 0)
+texture = ExtResource("2_u4103")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_14o8r")
+}

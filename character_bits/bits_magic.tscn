@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq4dgped73uo7"]
+
+[ext_resource type="Script" uid="uid://c321dfsm58lk1" path="res://character_bits/bits_magic.gd" id="1_tsokx"]
+[ext_resource type="SpriteFrames" uid="uid://qcfggbpw5dsb" path="res://character_bits/bits_magic_portrait_spriteframes.tres" id="2_m4mdr"]
+
+[sub_resource type="Animation" id="Animation_m4mdr"]
+resource_name = "attack"
+
+[sub_resource type="Animation" id="Animation_fugq5"]
+resource_name = "channel"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fugq5"]
+_data = {
+&"attack": SubResource("Animation_m4mdr"),
+&"channel": SubResource("Animation_fugq5")
+}
+
+[node name="BitsMagic" type="Node2D"]
+script = ExtResource("1_tsokx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-21, 0)
+rotation = -1.57079
+sprite_frames = ExtResource("2_m4mdr")
+
+[node name="SpellSpawn" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(12, 0.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fugq5")
+}

@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx8vqdcxr81gk"]
+
+[ext_resource type="Script" uid="uid://bqyma3sxj68o7" path="res://assemblage/spawn_areas.gd" id="1_q2gil"]
+
+[node name="SpawnAreas" type="Node2D"]
+script = ExtResource("1_q2gil")
+
+[node name="EnemySpawns" type="Node2D" parent="."]
+visible = false
+
+[node name="Rect" type="Control" parent="EnemySpawns"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 19.0
+offset_top = 7.0
+offset_right = 299.0
+offset_bottom = 68.0
+
+[node name="FriendSpawns" type="Node2D" parent="."]
+visible = false
+
+[node name="Rect" type="Control" parent="FriendSpawns"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 91.0
+offset_right = 294.0
+offset_bottom = 159.0

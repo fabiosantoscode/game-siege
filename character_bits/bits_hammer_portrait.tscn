@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://7pqd8odcjgax"]
+
+[ext_resource type="Texture2D" uid="uid://c6v3jme1k2l1c" path="res://character_bits/bits_hammer.png" id="1_na317"]
+
+[node name="BitsHammerPortrait" type="Node2D"]
+
+[node name="BitsHammer" type="Sprite2D" parent="."]
+position = Vector2(21, 0)
+rotation = -1.5708
+texture = ExtResource("1_na317")

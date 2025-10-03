@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://8lu0ljae0wf0"]
+
+[ext_resource type="SpriteFrames" uid="uid://qcfggbpw5dsb" path="res://character_bits/bits_magic_portrait_spriteframes.tres" id="1_gkieb"]
+
+[node name="BitsHammerPortrait" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-21, 0)
+rotation = -1.5708
+sprite_frames = ExtResource("1_gkieb")
+frame_progress = 0.3328
